@@ -1,10 +1,9 @@
-{{!< default}}
-
+{{#*inline "body"}}
 <div class="gh-outer">
 <main class="site-main gh-inner">
 
-    {{#if @custom.show_featured_posts}}
-        {{> "featured-posts"}}
+    {{#if @root.custom.show_featured_posts}}
+        {{> partials/featured-posts}}
     {{/if}}
 
     {{#get "tags" limit="all"}}
@@ -14,7 +13,7 @@
             <section class="topic">
                 <header class="topic-header">
                     <h2 class="topic-name">
-                        <a href="{{url}}">{{name}}</a>
+                        <a href="/{{slug}}">{{name}}</a>
                     </h2>
                 </header>
                 {{#get "posts" order="published_at asc" filter="tag:{{slug}}" limit="5" as |featured|}}
@@ -22,15 +21,15 @@
                         {{#foreach featured}}
                         <li class="topic-article">
                             <h3 class="topic-article-title">
-                                <a class="topic-article-link" href="{{url}}">
-                                    {{> "icons/chevron-right"}} {{title}}
+                                <a class="topic-article-link" href="/{{slug}}">
+                                    {{> partials/icons/chevron-right}} {{title}}
                                 </a>
                             </h3>
                         </li>
                         {{/foreach}}
                     </ul>
                 {{/get}}
-                <a class="topic-more" href="{{url}}">Show more →</a>
+                <a class="topic-more" href="/{{slug}}">Show more →</a>
             </section>
         {{/foreach}}
 
@@ -39,3 +38,5 @@
 
 </main>
 </div>
+{{/inline}}
+{{> default}}

@@ -12,7 +12,7 @@
 
                 <figure class="post-media">
                 <div class="u-placeholder same-height horizontal">
-                    <a class="post-image-link" href="{{url}}">
+                    <a class="post-image-link" href="/{{slug}}">
                         {{#if feature_image}}
                             <img class="post-image u-object-fit" src="{{img_url feature_image size="l"}}" alt="{{title}}">
                         {{/if}}
@@ -22,13 +22,13 @@
 
                 <header class="post-header">
                     <h2 class="post-title">
-                        <a class="post-title-link" href="{{url}}">{{title}}</a>
+                        <a class="post-title-link" href="/{{slug}}">{{title}}</a>
                     </h2>
                 </header>
 
-                {{#primary_tag}}
-                    <a class="post-tag tag-{{slug}}" href="{{url}}" title="{{name}}">{{name}}</a>
-                {{/primary_tag}}
+                {{#with primary_tag}}
+                    <a class="post-tag tag-{{slug}}" href="/{{slug}}" title="{{name}}">{{name}}</a>
+                {{/with}}
 
             </article>
         {{/foreach}}

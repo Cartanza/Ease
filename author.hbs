@@ -1,8 +1,7 @@
-{{!< default}}
-
+{{#*inline "body"}}
 <main class="site-main">
 
-    {{#author}}
+    {{#with author}}
     <div class="term-container gh-canvas">
         <section class="term">
             {{#if profile_image}}
@@ -14,14 +13,16 @@
             {{/if}}
         </section>
     </div>
-    {{/author}}
+    {{/with}}
 
     <div class="post-feed gh-canvas">
         {{#foreach posts}}
-            {{> "loop"}}
+            {{> partials/loop}}
         {{/foreach}}
     </div>
 
     {{pagination}}
 
 </main>
+{{/inline}}
+{{> default}}
